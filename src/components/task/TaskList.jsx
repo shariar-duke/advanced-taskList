@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FaStar } from "react-icons/fa";
-export default function TaskList({ tasks, onEdit, onDelete, onFav }) {
+export default function TaskList({ tasks,}) {
   return (
     <div className="overflow-auto container mx-auto pb-[100px]">
       <table className="table-fixed overflow-auto xl:w-full">
@@ -30,7 +30,7 @@ export default function TaskList({ tasks, onEdit, onDelete, onFav }) {
               key={index}
               className="text-white border-b border-[#2E2443] [&>td]:text-center [&>td]:px-2  [&>td]:py-4"
             >
-              <button onClick={() => onFav(task.id)}>
+              <button>
                 <td>
                   <FaStar
                     size={18}
@@ -56,18 +56,8 @@ export default function TaskList({ tasks, onEdit, onDelete, onFav }) {
               <td>{task?.priority}</td>
               <td>
                 <div className="flex items-center justify-center space-x-3">
-                  <button
-                    onClick={() => onDelete(task)}
-                    className="text-red-500"
-                  >
-                    Delete
-                  </button>
-                  <button
-                    onClick={() => onEdit(task)}
-                    className="text-blue-500"
-                  >
-                    Edit
-                  </button>
+                  <button className="text-red-500">Delete</button>
+                  <button className="text-blue-500">Edit</button>
                 </div>
               </td>
             </tr>
