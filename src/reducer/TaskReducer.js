@@ -24,9 +24,10 @@ const taskReducer = (state, action) => {
       break;
 
     case "DELETE_TASK":
-      return;
-      {
-      }
+      const filteredTask = state.filter(
+        (task) => task.id !== action.payload.id
+      );
+      return [...filteredTask];
       break;
 
     case "DELETE_ALL_TASK":

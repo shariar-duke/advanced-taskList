@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 import { FaStar } from "react-icons/fa";
+import { TaskContext } from "../../context";
+import { useContext } from "react";
 export default function TaskList({ tasks,}) {
+ 
+   const {dispatch} = useContext(TaskContext)
   return (
     <div className="overflow-auto container mx-auto pb-[100px]">
       <table className="table-fixed overflow-auto xl:w-full">
@@ -56,7 +60,12 @@ export default function TaskList({ tasks,}) {
               <td>{task?.priority}</td>
               <td>
                 <div className="flex items-center justify-center space-x-3">
-                  <button className="text-red-500">Delete</button>
+                  <button onClick={()=> dispatch({
+                    type:"DELETE_TASK",
+                    payload:{
+                      ...task
+                    }
+                  })} className="text-red-500">Delete</button>
                   <button className="text-blue-500">Edit</button>
                 </div>
               </td>
