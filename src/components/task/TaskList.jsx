@@ -2,9 +2,10 @@
 import { FaStar } from "react-icons/fa";
 import { TaskContext } from "../../context";
 import { useContext } from "react";
-export default function TaskList({ tasks,}) {
+export default function TaskList({ tasks,onEdit}) {
  
    const {dispatch} = useContext(TaskContext)
+
   return (
     <div className="overflow-auto container mx-auto pb-[100px]">
       <table className="table-fixed overflow-auto xl:w-full">
@@ -66,7 +67,7 @@ export default function TaskList({ tasks,}) {
                       ...task
                     }
                   })} className="text-red-500">Delete</button>
-                  <button className="text-blue-500">Edit</button>
+                  <button onClick={(e)=>onEdit(e, task)}className="text-blue-500">Edit</button>
                 </div>
               </td>
             </tr>

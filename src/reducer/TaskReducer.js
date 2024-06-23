@@ -36,13 +36,20 @@ const taskReducer = (state, action) => {
       break;
 
     case "EDIT_TASK":
-      return;
-      {
-      }
+      const updateTask = state.map((task) =>
+        task.id === action.payload.id ? { ...action.payload } : task
+      );
+
+      return [...updateTask];
+
       break;
 
     case "MAKE_FAV":
-      const favTasks = state.map((task) => task.id === action.payload.id ? {...task, isFavourite:!task.isFavourite}: task)
+      const favTasks = state.map((task) =>
+        task.id === action.payload.id
+          ? { ...task, isFavourite: !task.isFavourite }
+          : task
+      );
 
       return [...favTasks];
     default:

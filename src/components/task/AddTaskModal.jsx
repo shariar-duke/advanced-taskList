@@ -17,24 +17,35 @@ export default function AddTaskModal({ closeModal, taskToUpdate }) {
   );
 
   const [isAdd, setIsAdd] = useState(Object.is(taskToUpdate, null));
-  // const [isAdd, setIsAdd] = useState(Objec.is(taskToUpdate, null))
-
-
-  const {state, dispatch} = useContext(TaskContext)
-  
-
+  const {  dispatch } = useContext(TaskContext);
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch({
-      type:"ADD_TASK",
-      payload:{
-        ...task
-      }
-    })
+    if(taskToUpdate) 
+    {
 
-    closeModal()
+   
+      dispatch({
+        type: "EDIT_TASK",
+        payload: {
+          ...task,
+        },
+      });
+    }
 
+    else 
+    {
+      dispatch({
+        type: "ADD_TASK",
+        payload: {
+          ...task,
+        },
+      });
+    }
+
+   
+
+    closeModal();
   };
 
   const handleChange = (e) => {
