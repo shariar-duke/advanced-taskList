@@ -52,6 +52,13 @@ const taskReducer = (state, action) => {
       );
 
       return [...favTasks];
+      break;
+
+      case "SEARCH_TASK":
+        console.log(action.payload)
+         const searchTask = state.filter((task) => task.title.toLowerCase().includes(action.payload.searchTask.toLowerCase()))
+         return[...searchTask]
+        
     default:
       return state;
   }
