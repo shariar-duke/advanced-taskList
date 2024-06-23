@@ -33,6 +33,7 @@ const taskReducer = (state, action) => {
     case "DELETE_ALL_TASK":
       return;
       {
+        []
       }
       break;
 

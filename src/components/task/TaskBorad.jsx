@@ -62,7 +62,7 @@ export default function TaskBorad() {
       <SearchTask />
       <div className="mt-[25px] rounded-xl border-[rgba(206,206,206,0.12)] bg-[#1D212B] p-[30px]">
         <TaskAction
-          // onDeleteAllClick={handleDeleteAllTask}
+  
           onAddClick={() => setShowModal(true)}
         />
         {state?.length > 0 ? (
