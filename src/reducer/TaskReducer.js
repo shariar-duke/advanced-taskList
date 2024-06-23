@@ -10,50 +10,44 @@ const initialState = [
   },
 ];
 
-// now I want to write the reducer function 
+// now I want to write the reducer function
 
-const taskReducer =(state, action)=> 
-{
-  switch(action.type) 
-  {
+const taskReducer = (state, action) => {
+  switch (action.type) {
     case "ADD_TASK":
-        return 
+      return [
+        ...state,
         {
-
-        }
-    break;
+          ...action.payload,
+        },
+      ];
+      break;
 
     case "DELETE_TASK":
-        return 
-        {
-
-        }
-    break;
+      return;
+      {
+      }
+      break;
 
     case "DELETE_ALL_TASK":
-        return 
-        {
-
-        }
-    break;
+      return;
+      {
+      }
+      break;
 
     case "EDIT_TASK":
-        return 
-        {
-
-        }
-    break;
+      return;
+      {
+      }
+      break;
 
     case "MAKE_FAV":
-        return 
-        {
-
-        }
+      return;
+      {
+      }
     default:
-        return state
-
+      return state;
   }
-}
+};
 
-
-export {initialState, taskReducer}
+export { initialState, taskReducer };

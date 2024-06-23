@@ -9,21 +9,10 @@ import { TaskContext } from "../../context";
 export default function TaskBorad() {
   const [show, setShow] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const defaultTask = {
-    id: crypto.randomUUID(), 
-    title: "Learn Reacat",
-    description:
-      "I want to learn react as much as I can. Then  I will try to learn the other things ",
-    tags: ["web", "react", "js"],
-    priority: "High",
-    isFavourite: true,
-  };
-  const [tasks, setTasks] = useState([defaultTask]);
   const [taskToUpdate, setTaskToUpdate] = useState(null); 
-
   // getting the state value : 
   const {state} = useContext(TaskContext)
-  console.log("The state are", state)
+
 
   // const handleAddTask = (newTask, isAdd) => {
   //   if (isAdd) {
@@ -76,12 +65,9 @@ export default function TaskBorad() {
           // onDeleteAllClick={handleDeleteAllTask}
           onAddClick={() => setShowModal(true)}
         />
-        {tasks.length > 0 ? (
+        {state?.length > 0 ? (
           <TaskList
             tasks={state}
-            // onEdit={handleEditTask}
-            // onDelete={handleDeleteTask}
-            // onFav={handleFavourite}
           />
         ) : (
           <NoTaskFound />
@@ -89,8 +75,7 @@ export default function TaskBorad() {
 
         {showModal && (
           <AddTaskModal
-            taskToUpdate={taskToUpdate}
-            onSave={handleAddTask}
+            taskToUpdate={taskToUpdate}         
             closeModal={() => setShowModal(false)}
           />
         )}

@@ -7,7 +7,7 @@ import { useReducer } from "react";
 
 export default function App() {
   const [state, dispatch] = useReducer(taskReducer, initialState);
-  console.log("The current state is", state);
+  
   return (
     <TaskContext.Provider value={{state, dispatch}}>
       <div className="flex flex-col  h-[100%] pb-[70px]">
