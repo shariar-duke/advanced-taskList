@@ -34,7 +34,7 @@ export default function TaskList({ tasks,}) {
               key={index}
               className="text-white border-b border-[#2E2443] [&>td]:text-center [&>td]:px-2  [&>td]:py-4"
             >
-              <button>
+              <button onClick={()=> dispatch({type:"MAKE_FAV", payload:{...task}})}>
                 <td>
                   <FaStar
                     size={18}

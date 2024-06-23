@@ -31,10 +31,8 @@ const taskReducer = (state, action) => {
       break;
 
     case "DELETE_ALL_TASK":
-      return;
-      {
-        []
-      }
+      return [];
+
       break;
 
     case "EDIT_TASK":
@@ -44,9 +42,9 @@ const taskReducer = (state, action) => {
       break;
 
     case "MAKE_FAV":
-      return;
-      {
-      }
+      const favTasks = state.map((task) => task.id === action.payload.id ? {...task, isFavourite:!task.isFavourite}: task)
+
+      return [...favTasks];
     default:
       return state;
   }
